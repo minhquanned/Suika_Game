@@ -1,3 +1,7 @@
+import { SoundManager } from "./sound_manager.js";
+
+let soundManager = new SoundManager();
+
 let bubble = new Image();
 bubble.onload = () => {
     console.log('Bubble loaded!');
@@ -47,8 +51,10 @@ function drawWinOrLoseScreen(context, canvas, suikas) {
     context.font = '48px Arial';
     context.textAlign = 'center';
     if (suikas[suikas.length-1].level === 11) {
+        soundManager.playEffectSound('win');
         context.fillText('SUIKA!!!', canvas.width / 2, canvas.height / 2);
     } else {
+        soundManager.playEffectSound('lose');
         context.fillText('SUIKA OUT~ T-T', canvas.width / 2, canvas.height / 2);
     }
 
@@ -93,11 +99,22 @@ function drawForecast(context, suikaBag, canvas) {
     context.fillText('Next', canvas.width * 5/6, canvas.height / 5 - drawBubbleHeight / 4);
 }
 
+function drawGuide(context, canvas) {
+    context.fillStyle = '#FFFFFF';
+    context.font = '14px Arial';
+    context.textAlign = 'left';
+    context.fillText("Press 'R' to restart", canvas.width / 150, canvas.height / 50);
+    context.fillText("Press 'M' to mute", canvas.width / 150, canvas.height * 2 / 50);
+    context.fillText("Press ⬅️ and ➡️ or use your mouse to move", canvas.width / 150, canvas.height * 3 / 50);
+    context.fillText("Press 'Space' / 'Enter' / 'Left click' to drop", canvas.width / 150, canvas.height * 4 / 50);
+}
+
 function draw(paimon, suikas, suikaBag, currentSuika, context, canvas) {
     paimon.draw(canvas);
     drawSuika(suikas, currentSuika);
     drawBox(context, canvas.width / 2, 425);
     drawForecast(context, suikaBag, canvas);
+    drawGuide(context, canvas);
 }
 
 export { drawBox, drawWinOrLoseScreen, drawSuika, draw };

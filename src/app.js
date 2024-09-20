@@ -1,6 +1,7 @@
 import { collisionManager } from './collision.js';
 import { draw, drawWinOrLoseScreen } from './draw.js';
 import { Paimon } from './paimon.js';
+import { SoundManager } from './sound_manager.js';
 import { Suika } from './suika.js';
 
 'use strict';
@@ -21,7 +22,7 @@ window.isGameEnd = false;
 
 // Spawn stuffs
 let isSpawning = false;
-const spawnCooldown = 0.8;
+const spawnCooldown = 0.75;
 let spawnTimer = 0;
 let currentSuika;
 
@@ -29,6 +30,8 @@ let currentSuika;
 let pressCooldown = spawnCooldown + 0.05;
 let pressTimer = pressCooldown;
 
+const soundManager = new SoundManager();
+soundManager.playBackgroundMusic();
 
 let paimon;
 
@@ -201,6 +204,7 @@ window.addEventListener('click', (e) => {
         }
     } else {
         if (pressTimer >= pressCooldown) {
+            soundManager.playEffectSound('drop');
             currentSuika.isHolding = false;
             suikas.push(currentSuika);
             pressTimer = 0;
@@ -211,6 +215,7 @@ window.addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
         if (pressTimer >= pressCooldown) {
+            soundManager.playEffectSound('drop');
             currentSuika.isHolding = false;
             suikas.push(currentSuika);
             pressTimer = 0;
@@ -220,6 +225,27 @@ window.addEventListener('keydown', (e) => {
         console.log(suikas);
         suikas.splice(0, 1);
         console.log(suikas);
+    }
+    if (e.key === 'm') {
+        soundManager.toggleMute();
+    }
+    if (e.key === 'r') {
+        isGameEnd = false;
+        suikas = [];
+        spawnTimer = 0;
+        oldTimeStamp = 0;
+        currentSuika = new Suika(
+            context, 
+            paimon.x, 125, 
+            0, 0, 
+            suikaSamples[0].mass, 
+            true, 
+            suikaSamples[0].radius, 
+            suikaSamples[0].img, 
+            suikaSamples[0].level
+        );
+
+        window.requestAnimationFrame(gameLoop);
     }
 });
 

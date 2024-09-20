@@ -1,4 +1,5 @@
 import { suikaSamples } from "./app.js";
+import { SoundManager } from "./sound_manager.js";
 import { Suika } from "./suika.js";
 
 const canvasWidth = 1280;
@@ -9,6 +10,8 @@ let isMerging = false;
 let restitution = 0.2;
 let frictionForce = 0.98;
 let angularForce = 0.2;
+
+let soundManager = new SoundManager();
 
 function mergeSuika(suikas) {
     let mergedSuika;
@@ -33,6 +36,7 @@ function mergeSuika(suikas) {
                     break;
                 } else if (newSuikaIndex < suikaSamples.length) {
                     let newSuikaStats = suikaSamples[newSuikaIndex];
+                    soundManager.playEffectSound('merge');
 
                     mergedSuika = new Suika(
                         suika1.context,
