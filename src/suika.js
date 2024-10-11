@@ -19,8 +19,7 @@ class Suika extends GameObject
     draw() {
         this.context.save();
         this.context.translate(this.x, this.y);
-        // This line is for rotating the image
-        this.context.rotate(this.rotation);
+        this.context.rotate(this.rotation); // Rotating the image
         this.context.translate(-this.x, -this.y);
 
         // Aspect ratio of the image
