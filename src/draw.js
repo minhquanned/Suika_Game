@@ -12,13 +12,13 @@ let boxOutline = new Image();
 boxOutline.onload = () => {
     console.log('Box outline loaded!');
 }
-boxOutline.src = '../assets/box_outline.png';
+boxOutline.src = './assets/box_outline.png';
 
 let boxFill = new Image();
 boxFill.onload = () => {
     console.log('Box fill loaded!');
 };
-boxFill.src = '../assets/box_fill.png';
+boxFill.src = './assets/box_fill.png';
 
 function drawBox(context, x, y) {
     const boxScaleWidth = boxOutline.width / 2;
