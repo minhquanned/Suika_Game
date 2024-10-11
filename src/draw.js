@@ -6,7 +6,7 @@ let bubble = new Image();
 bubble.onload = () => {
     console.log('Bubble loaded!');
 };
-bubble.src = '../assets/bubble.png';
+bubble.src = './assets/bubble.png';
 
 let boxOutline = new Image();
 boxOutline.onload = () => {

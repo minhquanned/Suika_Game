@@ -1,26 +1,26 @@
 class SoundManager {
     constructor() {
         this.backgroundMusic = new Howl({
-            src: ['../sounds/background_music.mp3'],
+            src: ['./sounds/background_music.mp3'],
             loop: true,
             volume: 0.5
         });
 
         this.effectSounds = {
             drop: new Howl({
-                src: ['../sounds/drop.wav'],
+                src: ['./sounds/drop.wav'],
                 volume: 0.7
             }),
             merge: new Howl({
-                src: ['../sounds/merge.wav'],
+                src: ['./sounds/merge.wav'],
                 volume: 0.7
             }),
             lose: new Howl({
-                src: ['../sounds/lose.wav'],
+                src: ['./sounds/lose.wav'],
                 volume: 0.7
             }),
             win: new Howl({
-                src: ['../sounds/win.wav'],
+                src: ['./sounds/win.wav'],
                 volume: 0.7
             })
         }

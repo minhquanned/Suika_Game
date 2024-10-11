@@ -11,7 +11,7 @@ let background = new Image();
 background.onload = () => {
     console.log('Background loaded!');
 }
-background.src = '../assets/background.png';
+background.src = './assets/background.png';
 
 let secondsPassed = 0;
 let oldTimeStamp = 0;
@@ -36,17 +36,17 @@ soundManager.playBackgroundMusic();
 let paimon;
 
 let suikaPaths = [
-    {path: '../assets/1 - cherry.png', mass: 5, radius: 15, level: 1},
-    {path: '../assets/2 - strawberry.png', mass: 10, radius: 23, level: 2},
-    {path: '../assets/3 - grape.png', mass: 6, radius: 36, level: 3},
-    {path: '../assets/4 - dekopon.png', mass: 7, radius: 49, level: 4},
-    {path: '../assets/5 - orange.png', mass: 8, radius: 62, level: 5},
-    {path: '../assets/6 - apple.png', mass: 9, radius: 75, level: 6},
-    {path: '../assets/7 - pear.png', mass: 10, radius: 88, level: 7},
-    {path: '../assets/8 - peach.png', mass: 11, radius: 101, level: 8},
-    {path: '../assets/9 - pineapple.png', mass: 12, radius: 114, level: 9},
-    {path: '../assets/10 - melon.png', mass: 13, radius: 127, level: 10},
-    {path: '../assets/11 - watermelon.png', mass: 14, radius: 140, level: 11},
+    {path: './assets/1 - cherry.png', mass: 5, radius: 15, level: 1},
+    {path: './assets/2 - strawberry.png', mass: 10, radius: 23, level: 2},
+    {path: './assets/3 - grape.png', mass: 6, radius: 36, level: 3},
+    {path: './assets/4 - dekopon.png', mass: 7, radius: 49, level: 4},
+    {path: './assets/5 - orange.png', mass: 8, radius: 62, level: 5},
+    {path: './assets/6 - apple.png', mass: 9, radius: 75, level: 6},
+    {path: './assets/7 - pear.png', mass: 10, radius: 88, level: 7},
+    {path: './assets/8 - peach.png', mass: 11, radius: 101, level: 8},
+    {path: './assets/9 - pineapple.png', mass: 12, radius: 114, level: 9},
+    {path: './assets/10 - melon.png', mass: 13, radius: 127, level: 10},
+    {path: './assets/11 - watermelon.png', mass: 14, radius: 140, level: 11},
 ];
 let suikaSamples = [];
 let suikaBag = [];

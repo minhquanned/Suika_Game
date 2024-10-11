@@ -43,7 +43,7 @@ class Paimon
             Paimon.sprite.onload = () => {
                 console.log('Paimon loaded!');
             }
-            Paimon.sprite.src = '../assets/Chibi_Paimon.png';
+            Paimon.sprite.src = './assets/Chibi_Paimon.png';
         }
     }
 
