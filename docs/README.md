@@ -1,5 +1,5 @@
 # Suika Game
-Clone the git and run _**suika_clone.html**_ file with _**live server**_.
+Link play: [Suika Game](https://minhquanned.github.io/Suika_Game/)
 #
 Guide:
 - Press 'R' to restart
